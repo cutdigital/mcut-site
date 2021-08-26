@@ -1,0 +1,554 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Simple C++ mesh cutting library">
+      
+      
+      
+      
+        <link rel="canonical" href="https://cutdigital.github.io/mcut.site/faq/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>FAQ - MCUT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700%7CInconsolata&display=fallback">
+        <style>:root{--md-text-font-family:"Merriweather";--md-code-font-family:"Inconsolata"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extras.css">
+    
+    
+      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-58346315-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#faq" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="MCUT" class="md-header__button md-logo" aria-label="MCUT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MCUT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FAQ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cutdigital/mcut.git/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cutdigital/mcut
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MCUT" class="md-nav__button md-logo" aria-label="MCUT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+
+    </a>
+    MCUT
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cutdigital/mcut.git/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cutdigital/mcut
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        Build
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Tutorial
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/helloWorld/" class="md-nav__link">
+        HelloWorld
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/debugging/" class="md-nav__link">
+        Debugging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/meshes/" class="md-nav__link">
+        Meshes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/contextInfo/" class="md-nav__link">
+        GetContextInfo
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        Gallery
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        FAQ
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cutdigital/mcut.github.io/edit/docs/docs/faq.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
+<details class="faq"><summary>Is MCUT restricted to triangle meshes?</summary><p>No. MCUT is designed to work with meshes that are made with arbitrary&ndash;but planar&ndash;polygons. These polygons can be convex or convex, so triangle meshes are just a special case.</p>
+</details>
+<details class="faq"><summary>Is it possible that MCUT can fail to fill holes in sliced objects?</summary><p>MCUT can never fail to fill holes because the output meshes are produced by resolving/tracing the halfedge connectivity of input meshes. This is different from <a href="https://igl.ethz.ch/projects/winding-number/robust-inside-outside-segmentation-using-generalized-winding-numbers-siggraph-2013-jacobson-et-al.pdf">winding numbers</a> and improves overall robustness since numerical operations are performed <em>only</em> when resolving polygon intersections. </p>
+</details>
+<details class="faq"><summary>Does MCUT do automatic triangulation after cutting e.g. for rendering?</summary><p>No. Polygon/mesh triangulation is reserved for specialised tools and libraries that are separate from MCUT. </p>
+</details>
+<details class="faq"><summary>Can MCUT cut more than two meshes at the same time?</summary><p>MCUT is designed to work at-most with two meshes at a time. This simplifies reasoning about the implementation to reduce redundant complexity.</p>
+</details>
+<details class="faq"><summary>I wish to slice a tetrahedral/hexahedral mesh using MCUT - is this possible?</summary><p>In general, no. This is because tetrahedral/hexahedral meshes are non-manifold, which is beyond the scope of MCUT.</p>
+<p>However, you may be able to use MCUT as a building block to cut individual cells (tetrahedra/hexahedra) of your mesh with the given cutting surface. This of course implies that you must then resolve the connectivity of your non-manifold mesh manually, effectively building on top of MCUT.</p>
+</details>
+<details class="faq"><summary>Can the cut surface be a non-manifold mesh?</summary><p>No. The cut surface must always be a manifold surface mesh. </p>
+</details>
+<details class="faq"><summary>What constitues a valid mesh for MCUT?</summary><p>A valid mesh is a connected component which is a manifold surface that has no self-intersections involving polygons <em>along the cut</em>. We take the definition of manifold to be a mesh where every edge is incident to (i.e. used by) one or two faces.</p>
+</details>
+<details class="faq"><summary>Where can I find the documentation for using MCUT?</summary><p>Function documentation is provided in the main header file, which is <code>include/mcut/mcut.h</code>. There are three options for viewing this documentation: 1) building the docs with doxygen (see <a href="building">Compilation</a>), 2) doing a Ctrl+F on <code>mcut.h</code> in your favourite text editor/IDE, and 3) using the github search function in the MCUT <a href="https://github.com/cutdigital/mcut.git">repository</a>.</p>
+<p>The <a href="tutorials/helloWorld/">tutorials</a> are also useful.</p>
+</details>
+<details class="faq"><summary>What is a &lsquo;mesh&rsquo;?</summary><p>A mesh is a data structure consisting of a set of vertices, edges, faces and topological relations between them. This data structure defines how each element is stored.</p>
+</details>
+<details class="faq"><summary>What is a &lsquo;connected component&rsquo;?</summary><p>A connected component is the general name given to a mesh. In particular, it has the property that for any two faces in this mesh, there is <em>a path of adjacent faces</em> such that all edges between two consecutive faces of the path are not marked as constrained.</p>
+</details>
+<details class="faq"><summary>What is a &lsquo;source mesh&rsquo;?</summary><p>A source mesh is the mesh you want to cut.</p>
+</details>
+<details class="faq"><summary>What is a &lsquo;cut mesh&rsquo;?</summary><p>A cut mesh is the mesh you want to cut with (the knife tool).</p>
+</details>
+<details class="faq"><summary>What is a &lsquo;fragment&rsquo;?</summary><p>A fragment is a connected component that resulted from partitioning the source mesh - sealed or unsealed.</p>
+</details>
+<details class="faq"><summary>What is a &lsquo;patch&rsquo;?</summary><p>A patch is a connected component that is used to a seal hole in a fragment. It is a piece produced from the cut mesh.</p>
+</details>
+<details class="faq"><summary>What is a &lsquo;seamed connected component&rsquo;?</summary><p>A connected component produced by MCUT which is same as an input mesh (source mesh or cut mesh) except that it has new edges which are placed according to the cut.  </p>
+</details>
+<details class="faq"><summary>What is the meaning of &lsquo;fragment location&rsquo;?</summary><p>The relative location of a fragment with respect to the cut mesh, which is determined by the face orientation (winding order) of the cut mesh. </p>
+<p><em>Example</em>: A tetrahedron (source mesh) that is sliced in the middle with a quad (cut mesh), where the apex lies in the normal direction of the quad. In this case, the apex fragment is considered &lsquo;above&rsquo;, while the 6 sided fragment is considered &lsquo;below&rsquo;.</p>
+</details>
+<details class="faq"><summary>What is the meaning of &lsquo;patch location&rsquo;?</summary><p>The relative location of a patch with respect to the source mesh, which is determined by the face orientation (winding order) of the source mesh. Intuitively, the subset of cut mesh polygons&ndash;after clipping&ndash;that lie inside (say, a watertight) source mesh are considered &lsquo;inside&rsquo;, and those not as &lsquo;outside&rsquo;. </p>
+</details>
+<details class="faq"><summary>Must all input meshes have a consistent winding order?</summary><p>Yes. All input meshes must have a consistent winding order, but this order can be either clock-wise (CW) or counter clock-wise (CCW). Note however, <em>that the source mesh can be CCW while the cut mesh is CW, and vice-versa</em>.</p>
+</details>
+<details class="faq"><summary>Degenerate inputs (not in general position)</summary><p>MCUT expects that all polygon intersections can be reduced to edge-face intersections.</p>
+<p>A key objective in the design of MCUT is to resolve the combinatorial structure of the meshes being cut by using their connectivity. Using edge-face intersections tests compliments our design choice to work with connectivity by: 1) constraining the sources of roundoff error (during polygon intersection tests) for improving robustness, and 2) enabling a general solution to the &lsquo;mesh arrangements&rsquo; problem, catering to numerous mesh configurations such as mesh slicing with arbitrary manifold shapes and surfaces. </p>
+<p>Thus, MCUT is designed for inputs in &ldquo;general position&rdquo;, but also provides a crude workaround for degenerate inputs. Here the notion of general position is defined with respect to the orientation predicate: a set of points is in general position if no three points (where two points are from the same input mesh) are collinear, or that no four points (where three points from the same input mesh) are coplanar.</p>
+<p>The definition of &ldquo;inputs&rdquo; is relaxed here. Specifically by input, we mean the pairs of polygons from the source-mesh and cut-mesh that are tested for intersection. The polygons that are not intersecting in any form (i.e. even not touching) do not have to be in general position.</p>
+<p>MCUT will use numerical perturbation of the cut-mesh so as to bring the input into general position. In such cases, the idea is to solve the cutting problem not on the given input, but on a nearby input. The nearby input is obtained by perturbing the given input. The perturbed input will then be in general position and, since it is near the original input, the result for the perturbed input will hopefully still be useful. This is justified by the fact that the task of MCUT is not to decide whether the input is in general position but rather to make perturbation on the input (if) necessary within the available precision of the computing device. </p>
+<p>Perturbation is enabled by including the appropriate <code>MC_DISPATCH_ENFORCE_GENERAL_POSITION</code> flag when calling the <code>mcDispatch</code> function, which is the crude workaround for degenerate inputs.</p>
+<p><em>Note:</em> MCUT does not use <a href="https://hal.inria.fr/hal-01225202">symbolic perturbation</a> since correct labelling of polygon intersection points is dependent on orientation predicates giving true answer i.e. <a href="http://www.cs.cmu.edu/~quake/robust.html"><code>orient3d</code> and <code>orient2d</code></a> must return one of three values {-1, 0, +1} and not two {-1 or +1}, which is the essence of symbolic perturbation. The reason for MCUT doing this is that it allows us to identify intersection points &lsquo;topologically&rsquo; and ensure that the entire implementation is free of numerical operations, except to compute intersection points. Thus, each intersection point can be uniquely identified according to the faces (from the source mesh and cut-mesh) that meet there, as well as the (half)edge that intersected a face to yeild that point.</p>
+</details>
+<div class="row">
+  <div class="column">
+    <img src="../media/mcut-armadillo-cut-surface.png" alt="drawing1" style="width:100%"/> 
+
+  </div>
+  <div class="column">
+    <img src="../media/mcut-armadillo-cut-unsealed.png" alt="drawing3" style="width:85%"/>
+  </div>
+  <div class="column">
+    <img src="../media/mcut-armadillo-cut-sealed.png" alt="drawing2" style="width:85%"/> 
+
+  </div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../gallery/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Gallery" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Gallery
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../license/" class="md-footer__link md-footer__link--next" aria-label="Next: License" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              License
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

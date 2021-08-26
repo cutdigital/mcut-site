@@ -1,0 +1,978 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Simple C++ mesh cutting library">
+      
+      
+      
+      
+        <link rel="canonical" href="https://cutdigital.github.io/mcut.site/tutorials/helloWorld/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>HelloWorld - MCUT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700%7CInconsolata&display=fallback">
+        <style>:root{--md-text-font-family:"Merriweather";--md-code-font-family:"Inconsolata"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../extras.css">
+    
+    
+      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-58346315-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hello-mcut-world" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MCUT" class="md-header__button md-logo" aria-label="MCUT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MCUT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HelloWorld
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cutdigital/mcut.git/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cutdigital/mcut
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MCUT" class="md-nav__button md-logo" aria-label="MCUT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+
+    </a>
+    MCUT
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cutdigital/mcut.git/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cutdigital/mcut
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../building/" class="md-nav__link">
+        Build
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Tutorial
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          HelloWorld
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        HelloWorld
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input-meshes" class="md-nav__link">
+    Input meshes
+  </a>
+  
+    <nav class="md-nav" aria-label="Input meshes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-source-mesh" class="md-nav__link">
+    The source mesh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cut-mesh" class="md-nav__link">
+    The cut mesh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualising-mesh-placement" class="md-nav__link">
+    Visualising mesh placement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-mcut-api" class="md-nav__link">
+    Using the MCUT API
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the MCUT API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-context" class="md-nav__link">
+    Creating a context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dispatch-call" class="md-nav__link">
+    The dispatch call
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wheres-my-output" class="md-nav__link">
+    Where's my output?
+  </a>
+  
+    <nav class="md-nav" aria-label="Where's my output?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-many-meshes" class="md-nav__link">
+    How many meshes?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-mesh-data" class="md-nav__link">
+    Accessing mesh data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-up" class="md-nav__link">
+    Cleaning up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    Results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        Debugging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meshes/" class="md-nav__link">
+        Meshes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contextInfo/" class="md-nav__link">
+        GetContextInfo
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gallery/" class="md-nav__link">
+        Gallery
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input-meshes" class="md-nav__link">
+    Input meshes
+  </a>
+  
+    <nav class="md-nav" aria-label="Input meshes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-source-mesh" class="md-nav__link">
+    The source mesh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cut-mesh" class="md-nav__link">
+    The cut mesh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualising-mesh-placement" class="md-nav__link">
+    Visualising mesh placement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-mcut-api" class="md-nav__link">
+    Using the MCUT API
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the MCUT API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-context" class="md-nav__link">
+    Creating a context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dispatch-call" class="md-nav__link">
+    The dispatch call
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wheres-my-output" class="md-nav__link">
+    Where's my output?
+  </a>
+  
+    <nav class="md-nav" aria-label="Where's my output?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-many-meshes" class="md-nav__link">
+    How many meshes?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-mesh-data" class="md-nav__link">
+    Accessing mesh data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-up" class="md-nav__link">
+    Cleaning up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    Results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cutdigital/mcut.github.io/edit/docs/docs/tutorials/helloWorld.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="hello-mcut-world">Hello MCUT world<a class="headerlink" href="#hello-mcut-world" title="Permanent link">&para;</a></h1>
+<p>In this tutorial, we will look at simple HelloWorld-style example of an MCUT application. The purpose of the tutorial is to get you up to speed with using MCUT for cutting arbitrary meshes.</p>
+<h2 id="input-meshes">Input meshes<a class="headerlink" href="#input-meshes" title="Permanent link">&para;</a></h2>
+<p>The first thing we will do is define our meshes, which are the source mesh and cut mesh. This section, describes how we define these meshes. </p>
+<h3 id="the-source-mesh">The source mesh<a class="headerlink" href="#the-source-mesh" title="Permanent link">&para;</a></h3>
+<p>Here we will now define the source mesh, which will be cube as shown in the image below.</p>
+<div>
+  <img src="../../media/gallery/helloWorld/srcmesh.png" style="width:70%" class="center"/> 
+  <p style="text-align:center;font-size:70%;">The source mesh: a cube. </p>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">cubeVertices</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">// 0</span>
+<span class="w">    </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1</span>
+<span class="w">    </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">//2</span>
+<span class="w">    </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">//3</span>
+<span class="w">    </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="c1">//4</span>
+<span class="w">    </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="c1">//5</span>
+<span class="w">    </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="c1">//6</span>
+<span class="w">    </span><span class="mi">-5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">-5</span><span class="w"> </span><span class="c1">//7</span>
+<span class="p">};</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">cubeFaces</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">//0</span>
+<span class="w">    </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="c1">//1</span>
+<span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">//2</span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="c1">//3</span>
+<span class="w">    </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="c1">//4</span>
+<span class="w">    </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">//5</span>
+<span class="p">};</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">cubeFaceSizes</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">numCubeVertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">numCubeFaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>As you see, we just use simple C-style arrays to define the geometry and connectivity of our cube. This is all that MCUT needs to define a mesh: </p>
+<ul>
+<li>a list of vertices </li>
+<li>a list faces (indices)</li>
+<li>a list of face sizes (a value for each face)  </li>
+<li>the number of vertices</li>
+<li>the number of faces</li>
+</ul>
+<h3 id="the-cut-mesh">The cut mesh<a class="headerlink" href="#the-cut-mesh" title="Permanent link">&para;</a></h3>
+<p>Now that we have defined our source mesh, lets define the cut mesh. This will be the object that we will be slicing our cube with. Here is what the cut mesh looks like, and the code for defining this mesh is provided just below too.</p>
+<div>
+  <img src="../../media/gallery/helloWorld/cutmesh.png" style="width:70%" class="center"/> 
+  <p style="text-align:center;font-size:70%;">The cut mesh: a quad bent in the middle. </p>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">cutMeshVertices</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mi">-20</span><span class="p">,</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">//0</span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="c1">//1</span>
+<span class="w">    </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">//2</span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">-20</span><span class="w"> </span><span class="c1">//3</span>
+<span class="p">};</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">cutMeshFaces</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">//0</span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1">//1</span>
+<span class="p">};</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">cutMeshFaceSizes</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">numCutMeshVertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">numCutMeshFaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>Again, the data structures for defining our cut mesh are exactly the same as the source mesh. All we did was just change the data - simple.</p>
+<h3 id="visualising-mesh-placement">Visualising mesh placement<a class="headerlink" href="#visualising-mesh-placement" title="Permanent link">&para;</a></h3>
+<p>Before we proceed onto actually calling any MCUT functions, here is a visual depiction of the relative placement of the two meshes:</p>
+<div>
+  <img src="../../media/gallery/helloWorld/polygon-soup.png" style="width:70%" class="center"/> 
+  <p style="text-align:center;font-size:70%;">A combined visualisation of our meshes, using their unmodified vertex coordinates.</p>
+</div>
+
+<p>This relative positioning is determined by our vertex coordinates - as specified when we defined the meshes.</p>
+<h2 id="using-the-mcut-api">Using the MCUT API<a class="headerlink" href="#using-the-mcut-api" title="Permanent link">&para;</a></h2>
+<p>Up to now, we have described how to define meshes in a suitable format for MCUT to read. This is the first step of using MCUT - actually defining the mesh data to use for cutting. In this section, we will now describe how to cut our cube mesh with the cut mesh using MCUT.</p>
+<h3 id="creating-a-context">Creating a context<a class="headerlink" href="#creating-a-context" title="Permanent link">&para;</a></h3>
+<p>First things first, we must create a context. MCUT contexts are represented by <code>McContext</code> data structures, and you can create
+them using:</p>
+<div class="highlight"><pre><span></span><code><span class="n">McContext</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MC_NULL_HANDLE</span><span class="p">;</span><span class="w"></span>
+<span class="n">mcCreateContext</span><span class="p">(</span><span class="o">&amp;</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">MC_NULL_HANDLE</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>MCUT uses the allocated context object to handle state, memory resources, etc. We can also think of <code>mcCreateContext</code> like the &lsquo;init&rsquo; function (kinda&hellip;). </p>
+<p>And thats pretty much it - thats all we need to do in order to &ldquo;initialize&rdquo; MCUT before we can do <em>the fun stuff</em>. </p>
+<p>Lets do some cutting.</p>
+<h3 id="the-dispatch-call">The dispatch call<a class="headerlink" href="#the-dispatch-call" title="Permanent link">&para;</a></h3>
+<p>Now that we have our mesh data and a context has been created, the next step is cut the cube. To do this, we call the <code>mcDispatch</code> function like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mcDispatch</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">context</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">MC_DISPATCH_VERTEX_ARRAY_FLOAT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">cubeVertices</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">cubeFaces</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">cubeFaceSizes</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">numCubeVertices</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">numCubeFaces</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">cutMeshVertices</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">cutMeshFaces</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">cutMeshFaceSizes</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">numCutMeshVertices</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">numCutMeshFaces</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>&hellip; and that&rsquo;s it - we have cut our cube. Simple huh..? </p>
+<p>Before moving on to the next section, let peek at the parameters a bit. They seem a lot at-first-glance but if we look closer we can see that most of them are just our mesh variables that we defined previously. So they are covered. The first parameter is our context (of-course!) which will hold all information/state relating to our operation. The second parameter specifies how MCUT should interpret our vertex arrays (<code>cubeVertices</code> and <code>cutMeshVertices</code>). In this example, <code>MC_DISPATCH_VERTEX_ARRAY_FLOAT</code> means &ldquo;interpret the data as 32-bit floats&rdquo; which must match with our arrays.</p>
+<h3 id="wheres-my-output">Where&rsquo;s my output?<a class="headerlink" href="#wheres-my-output" title="Permanent link">&para;</a></h3>
+<p>At this point, MCUT has cut the cube, which was done by calling using the <code>mcDispatch</code> function. However, there&rsquo;s no evidence of output meshes anywhere in our code which we need to show that MCUT actually did something! So in this section, we will find out how to ask MCUT to give us the result(s) of the cutting operation that we just performed. </p>
+<h4 id="how-many-meshes">How many meshes?<a class="headerlink" href="#how-many-meshes" title="Permanent link">&para;</a></h4>
+<p>The first step to getting our output from MCUT to query for how many meshes (otherwise known as &ldquo;connected components&rdquo;) of a particular type are available. Since we are learning about what MCUT can do, we will request <em>all</em> of the output that resulted from our cube being cut. Here&rsquo;s how we do that:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">uint32_t</span><span class="w"> </span><span class="n">numConnComps</span><span class="p">;</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">McConnectedComponent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">connComps</span><span class="p">;</span><span class="w"></span>
+<span class="n">mcGetConnectedComponents</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_TYPE_ALL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numConnComps</span><span class="p">);</span><span class="w"></span>
+<span class="n">connComps</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">numConnComps</span><span class="p">);</span><span class="w"></span>
+<span class="n">mcGetConnectedComponents</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_TYPE_ALL</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">connComps</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">connComps</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>Notice how we had to call <code>mcGetConnectedComponents</code> twice? We do this because in MCUT querying information is a two-step process. First you need to allocate memory for one or more structures. Then you need to initialize these structures. </p>
+<p>The code above calls <code>mcGetConnectedComponents</code> twice. The first time, it places the number of connected components in the <code>numConnComps</code> variable. The second time, it places <code>McConnectedComponent</code> structures in the <code>connComps</code> array. We’ll employ this <em>function-allocation-function</em> procedure for many other types of queries as well.</p>
+<p>Notice that we also provided the parameter <code>MC_CONNECTED_COMPONENT_TYPE_ALL</code> which specifies that we want all connected components from MCUT. This allows for filtering to get just the connected components we want by specifying different values.</p>
+<h4 id="accessing-mesh-data">Accessing mesh data<a class="headerlink" href="#accessing-mesh-data" title="Permanent link">&para;</a></h4>
+<p>Once we&rsquo;ve accessed an available connected component, we can access every type of data that we can query for one - like its vertices. </p>
+<p>In code, connected components (i.e. meshes) are represented by <code>McConnectedComponent</code> structures. These are easy to
+work with, and the functions that relate to connected component data are very similar to <code>mcGetConnectedComponents</code> from the preceding section. This section presents the another MCUT connected component function,
+<code>mcGetConnectedComponentData</code>, and shows how it is used in code.</p>
+<p>As its name implies, <code>mcGetConnectedComponentData</code> accepts a <code>McConnectedComponent</code> (amongst others) and provides information about the corresponding connected component. This operates in exactly the same way that <code>mcGetConnectedComponents</code> does: Identify the type
+of information you’re looking for, and the function will place the data in the memory referenced.</p>
+<p>We will now show how to query connected componented data. Assume that these variables have been defined in the following snippets:</p>
+<div class="highlight"><pre><span></span><code><span class="n">McConnectedComponent</span><span class="w"> </span><span class="n">connComp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connComps</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="c1">// connected component handle.</span>
+<span class="kt">uint64_t</span><span class="w"> </span><span class="n">numBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// number of bytes we must allocate.</span>
+</code></pre></div>
+<p>And here is how we query the data of a connected component (vertices, faces etc.):</p>
+<p><em>query the number of vertices</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">mcGetConnectedComponentData</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">connComp</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_DATA_VERTEX_COUNT</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numBytes</span><span class="p">);</span><span class="w"></span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">numberOfVertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">mcGetConnectedComponentData</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">connComp</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_DATA_VERTEX_COUNT</span><span class="p">,</span><span class="w"> </span><span class="n">numBytes</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numberOfVertices</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p><em>query the vertices</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">mcGetConnectedComponentData</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">connComp</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_DATA_VERTEX_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numBytes</span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vertices</span><span class="p">;</span><span class="w"></span>
+<span class="n">vertices</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">numBytes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span><span class="w"> </span><span class="c1">//... or --&gt; numberOfVertices * 3</span>
+<span class="n">mcGetConnectedComponentData</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">connComp</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_DATA_VERTEX_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="n">numBytes</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">vertices</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p><em>query the faces</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">mcGetConnectedComponentData</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">connComp</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_DATA_FACE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numBytes</span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">faceIndices</span><span class="p">;</span><span class="w"></span>
+<span class="n">faceIndices</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">numBytes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">));</span><span class="w"></span>
+<span class="n">mcGetConnectedComponentData</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">connComp</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_DATA_FACE</span><span class="p">,</span><span class="w"> </span><span class="n">numBytes</span><span class="p">,</span><span class="w"> </span><span class="n">faceIndices</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p><em>query the face sizes</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">mcGetConnectedComponentData</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">connComp</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_DATA_FACE_SIZE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numBytes</span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">faceSizes</span><span class="p">;</span><span class="w"></span>
+<span class="n">faceSizes</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">numBytes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">));</span><span class="w"></span>
+<span class="n">mcGetConnectedComponentData</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">connComp</span><span class="p">,</span><span class="w"> </span><span class="n">MC_CONNECTED_COMPONENT_DATA_FACE_SIZE</span><span class="p">,</span><span class="w"> </span><span class="n">numBytes</span><span class="p">,</span><span class="w"> </span><span class="n">faceSizes</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>Glancing through the code, its fairly easy to see that we are using <code>mcGetConnectedComponentData</code> similarly to the way we used <code>mcGetConnectedComponents</code> in the previous section, which makes the library very easy to use.</p>
+<p>We are done! So lets clean up before seeing our results and wrapping up below.</p>
+<h3 id="cleaning-up">Cleaning up<a class="headerlink" href="#cleaning-up" title="Permanent link">&para;</a></h3>
+<p>Now that we have finished using MCUT, we must free all resources that were allocated for our connected components. Since we want to free all connected component data, we will just do:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mcReleaseConnectedComponents</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>&hellip; which will release the resources held by the library for <em>all</em> connected components.</p>
+<p>Finally, we will also destroy our context since we will not be performing any further cutting operations. Here&rsquo;s how we do that:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mcReleaseContext</span><span class="p">(</span><span class="n">context</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h3 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h3>
+<p>In this section, we show the meshes produced as a result of cutting our cube with MCUT.</p>
+<p><em>Internally sealed fragments</em></p>
+<p>Here we show the canonical results of the cut, which are the two watertight fragments of our cube. We have effectively cut and filled the holes in our cube to produce the fragments.</p>
+<div class="container">
+    <div style="float:left;width:49%">
+       <img src="../../media/gallery/helloWorld/frag-below-sealed-int.png"  />
+       <p style="text-align:center;font-size:80%;">Internally-sealed lower fragment.</p>
+    </div>
+    <div style="float:right;width:49%">
+        <img src="../../media/gallery/helloWorld/frag-above-sealed-int.png" />
+        <p style="text-align:center;font-size:80%;">Internally-sealed upper fragment.</p>
+    </div>
+</div>
+
+<p><em>Externally sealed fragments</em></p>
+<p>Here we show an odd but unique case, which is an example of sealing our cube from the outside. </p>
+<div class="container">
+    <div style="float:left;width:49%">
+       <img src="../../media/gallery/helloWorld/frag-below-sealed-ext.png"  />
+       <p style="text-align:center;font-size:80%;">Externally-sealed lower fragment.</p>
+    </div>
+    <div style="float:right;width:49%">
+        <img src="../../media/gallery/helloWorld/frag-above-sealed-ext.png" />
+        <p style="text-align:center;font-size:80%;">Externally-sealed upper fragment.</p>
+    </div>
+</div>
+
+<p>Such a result is readily produced by MCUT, and is the cornerstone of MCUT&rsquo;s support of CSG (boolean) operations. As you may imagine, this feature enables new techniques and effects for mesh editing tools.</p>
+<p><em>Unsealed fragments</em></p>
+<p>In this example, we show that not only can MCUT produce watertight and externally sealed meshes, but that MCUT can also provide the unsealed fragments of the source mesh. It is also possible to retrieve partially sealed meshes which is not shown here.</p>
+<div class="container">
+    <div style="float:left;width:49%">
+       <img src="../../media/gallery/helloWorld/frag-below-unsealed.png"  />
+       <p style="text-align:center;font-size:80%;">Unsealed lower fragment.</p>
+    </div>
+    <div style="float:right;width:49%">
+        <img src="../../media/gallery/helloWorld/frag-above-unsealed.png" />
+        <p style="text-align:center;font-size:80%;">Unsealed upper fragment.</p>
+    </div>
+</div>
+
+<p><em>Patches</em></p>
+<p>While the focus is generally on the source much, the versatility MCUT also allows us to create cut-outs of the cut mesh.</p>
+<div class="container">
+    <div style="float:left;width:49%">
+       <img src="../../media/gallery/helloWorld/patch-int.png"  />
+       <p style="text-align:center;font-size:80%;">Interior patch.</p>
+    </div>
+    <div style="float:right;width:49%">
+        <img src="../../media/gallery/helloWorld/patch-ext.png" />
+        <p style="text-align:center;font-size:80%;">Exterior patch.</p>
+    </div>
+</div>
+
+<p>We refer to this as <em>stencilling</em>. The left image show the interior patch of the cut surface, which can be used for emulating effects like &ldquo;gingerbread man&rdquo; style cut-outs. On the right, we show the exterior patch which likewise holds potential use-cases of its own. One example application, is producing silhouette cut-outs for simulating deformation or cloth-like effects on intricate geometries. </p>
+<p><em>Seams</em></p>
+<p>Finally, in this example we show that MCUT can also be used as a practical tool for computing intersection contours. These are the paths of intersection between the source mesh and cut mesh.</p>
+<div class="container">
+    <div style="float:left;width:49%">
+       <img src="../../media/gallery/helloWorld/srcmesh-seamed.png"  />
+       <p style="text-align:center;font-size:80%;">Source mesh with added seam.</p>
+    </div>
+    <div style="float:right;width:49%">
+        <img src="../../media/gallery/helloWorld/cutmesh-seamed.png" />
+        <p style="text-align:center;font-size:80%;">Cut mesh with added seam.</p>
+    </div>
+</div>
+
+<p>One example application of seams is global intersection analysis in character animation, which is the backbone of industry-standard collision-response algorithms for unoriented objects like cloth. A key point to note here is that this feature results directly from the generality of MCUT, resolving mesh intersections using the half-edge data structure. </p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>In this tutorial, we have looked a simple HelloWorld-style of application using MCUT. First, mesh initialisation was described, showing that defining a mesh boils doing to simple C-style arrays. We then proceeded to create an MCUT context, which allowed us to submit a dispatch call to do the cutting. We demonstrated that all of these steps were brief and simple. Next, we delved into the task of querying data from MCUT after a dispatch call. In this regard, we found out how MCUT uses a &ldquo;function-allocation-function procedure&rdquo; to query information. This was then used to access connected components (our meshes), and their data (vertices, face indices etc.). Finally, we finished off by showing how to free internal memory allocated by the MCUT library, and then topped off with some nice visualisations of the output meshes.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../building/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Build" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Build
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../debugging/" class="md-footer__link md-footer__link--next" aria-label="Next: Debugging" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Debugging
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
